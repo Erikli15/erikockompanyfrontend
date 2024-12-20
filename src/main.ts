@@ -1,6 +1,13 @@
+// main.ts
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { HomeComponent } from './app/home/home.component'; // Importera HomeComponent
+import { AboutComponent } from './app/about/about.component'; // Importera AboutComponent
+import { appRoutes } from './app/app.config'; // Importera routingkonfigurationen
+import { provideRouter } from '@angular/router';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(appRoutes)  // Routingkonfigurationen tillhandahålls här
+  ]
+}).catch((err) => console.error(err));
