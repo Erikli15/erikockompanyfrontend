@@ -1,0 +1,15 @@
+.bildspel {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Justera höjden efter behov */
+  }
+  
+  .bild {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bild.active {
+    display: block;
+  }

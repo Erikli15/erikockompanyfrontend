@@ -1,1 +1,47 @@
-<p>contact works!</p>
+<!DOCTYPE html>
+<html lang="se">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakta oss</title>
+</head>
+<body>
+    <div class="contact-form">
+        <h2>Kontakta oss</h2>
+        <form action="submit_form.php" method="POST">
+            <h3>Kontakt formulär</h3>
+            <div class="form-group">
+                <label for="name">Fullständigt namn</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-postadress</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Ämne</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Meddelande</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Skicka meddelande</button>
+        </form>
+        <div class="form-message">
+            <p>Vi återkommer till dig så snart som möjligt!</p>
+        </div>
+        <div class="contact-info">
+            <h3>Kontakta info</h3>
+            <p>Email: <a href="erikocompany@workmail.com">Skicka email</a></p>
+            <p>Telefonnummer: 0856320178</p>
+        </div>
+        <div class="postal-address">
+            <h3>Post adress</h3>
+            <p>Erik O`Company</p>
+            <p>Mjölnarvägen 21</p>
+            <p>17851 Ekerö</p>
+        </div>
+    </div>
+</body>
+</html>
