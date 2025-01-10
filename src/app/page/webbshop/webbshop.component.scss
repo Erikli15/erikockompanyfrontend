@@ -1,81 +1,66 @@
-/* Styla main-elementet */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #f9f9f9;
+#mainDockment {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; // Jämnt utrymme mellan korten
+  align-items: flex-start; // Justera korten till toppen
+  padding: 0px;
+  margin-bottom: 10px;
+  width: 100%; // Fast bredd
+  height: 100%; // Fast höjd
+  position: static; // Positionering
+
 }
 
-/* Styla produktkortet */
 .product-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 15px;
-    width: 200px;
-    overflow: hidden;
-    background-color: #fff;
-    transition: transform 0.2s;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-}
-
-/* Styla produktens bild */
-.product-image {
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    padding: 10px;
-}
-
-.product-image .image {
-    width: 200px;
-    height: 200px;
-    display: inline-block;
+  background: #2F2B75; // Bakgrundsfärg
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  color: #ccc;
 }
 
 .product-image img {
-    max-width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
-/* Styla produktens information */
 .product-info {
-    padding: 10px;
+  margin-top: 10px;
 }
 
-.product-className {
-    font-size: 14px;
-    color: #666;
-}
-
-.product-name {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-.product-price {
-    font-size: 16px;
-    color: #f30a0a;
-}
-
-/* Styla köp-knappen */
 .buy-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .buy-button:hover {
-    background-color: #218838;
+  background-color: #218838;
+}
+
+
+
+@media (max-width: 768px) {
+  .main-container {
+    width: 100%; // Anpassa bredden för mindre skärmar
+    height: auto; // Anpassa höjden automatiskt
+    left: 0; // Justera positionering
+    top: 0;
+  }
+
+  .product-card {
+    width: 100%; // Anpassa kortens bredd för mindre skärmar
+    height: auto; // Anpassa höjden automatiskt
+  }
+
+  .product-image {
+    width: 100%; // Anpassa bildens bredd för mindre skärmar
+  }
 }

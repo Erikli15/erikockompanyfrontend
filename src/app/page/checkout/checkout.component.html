@@ -1,0 +1,82 @@
+<form (ngSubmit)="onSubmit(checkoutForm)" #checkoutForm="ngForm">
+    <!-- Faktureringsadress -->
+    <div>
+        <label for="billingCountry">Land *:</label>
+        <input type="text" id="billingCountry" name="billingCountry" ngModel required>
+    </div>
+
+    <!-- Använd som leveransadress -->
+    <div>
+        <label for="useAsShippingAddress">Använd som leveransadress:</label>
+        <input type="checkbox" id="useAsShippingAddress" name="useAsShippingAddress" ngModel>
+    </div>
+
+    <!-- Kundtyp -->
+    <div>
+        <label for="customerType">Kundtyp:</label>
+        <select id="customerType" name="customerType" ngModel required>
+            <option value="person">Person</option>
+            <option value="organisation">Organisation</option>
+        </select>
+    </div>
+
+    <!-- Personlig Information -->
+    <div *ngIf="checkoutForm.value.customerType === 'person'">
+        <label for="name">För- och efternamn *:</label>
+        <input type="text" id="name" name="name" ngModel required>
+    </div>
+
+    <!-- Organisationsinformation -->
+    <div *ngIf="checkoutForm.value.customerType === 'organisation'">
+        <label for="organisationName">Namn (obligatoriskt):</label>
+        <input type="text" id="organisationName" name="organisationName" ngModel required>
+
+        <label for="organisationNumber">Organisationsnummer:</label>
+        <input type="text" id="organisationNumber" name="organisationNumber" ngModel required>
+    </div>
+
+    <!-- Gatuadress -->
+    <div>
+        <label for="streetAddress">Gata *:</label>
+        <input type="text" id="streetAddress" name="streetAddress" ngModel required>
+    </div>
+
+    <!-- Postnummer -->
+    <div>
+        <label for="postCode">Postnummer (XXXXX) *:</label>
+        <input type="text" id="postCode" name="postCode" ngModel required>
+    </div>
+
+    <!-- Stad -->
+    <div>
+        <label for="city">Stad *:</label>
+        <input type="text" id="city" name="city" ngModel required>
+    </div>
+
+    <!-- Leveransadress -->
+    <div>
+        <label for="shippingCountry">Land *:</label>
+        <input type="text" id="shippingCountry" name="shippingCountry" ngModel required>
+    </div>
+
+    <!-- Order Lines (Pre-filled or dynamically generated) -->
+    <div>
+        <h3>Orderdetaljer</h3>
+        <p>Produkt: Produkt 1</p>
+        <p>Antal: 1</p>
+        <p>Enhetspris: 1000 SEK</p>
+        <p>Moms: 20%</p>
+    </div>
+
+    <button type="submit">Gå vidare till betalning</button>
+</form>
+
+  <div id="checkout-container" [innerHTML]="klarnaHtml"></div>
+
+  
+
+
+  
+
+
+  

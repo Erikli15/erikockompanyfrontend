@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartComponent } from '../carts/carts.component'; // Importera CartComponent
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule], // Import CommonModule here
+  imports: [CommonModule, CartComponent, HttpClientModule], // Import CommonModule here
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -27,7 +30,7 @@ export class HeaderComponent implements OnInit {
     if (logoutButton) {
       logoutButton.addEventListener('click', () => {
         window.location.href = '/logout'; // Redirect to logout endpoint
-      });
+      }); 
     }
   }
 

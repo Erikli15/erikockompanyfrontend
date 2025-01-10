@@ -1,10 +1,75 @@
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+  right: 0;
+  bottom: 0; // Footern ligger längst ner
+  background: #2F2B75;
+  height: auto;
+  width: 100%; // Ändrat från auto till 100%
+  border: 1px solid #FFFFFF;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+
+footer .about,
+footer .contact,
+footer .socialamedia,
+footer .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; // Minskat från 10px
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-size: 14px; // Minskat från 16px
+  line-height: 150%;
+}
+
+footer .contact ul,
+footer .socialamedia ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .contact ul li,
+footer .socialamedia ul li {
+  display: flex;
+  align-items: center;
+  gap: 4px; // Minskat från 8px
+}
+
+footer .nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px; // Minskat från 24px
+}
+
+footer .copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-size: 12px; // Minskat från 14px
+  line-height: 150%;
+  margin-top: 10px; // Minskat från 20px
+}
+
+footer .divider {
+  width: 100%;
+  height: 1px;
+  background: #FFFFFF;
+  margin: 10px 0; // Minskat från 20px 0
+}
+
+footer .row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px; // Minskat från 20px
+}

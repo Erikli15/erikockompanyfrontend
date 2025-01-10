@@ -1,14 +1,16 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <main id="mainDockment">
-    </main>
 
-</body>
-</html>
+<main id="mainDockment">
+    <section class="product-card" *ngFor="let product of products">
+      <article class="product-image">
+        <img class="img" [src]="product.imgUrl" alt="Bild saknas">
+      </article>
+      <article class="product-info">
+        <p class="product-id">ID: {{ product.id }}</p>
+        <h2 class="product-name">{{ product.productName }}</h2>
+        <p class="product-price">Pris: {{ product.price }} kr</p>
+      </article>
+      <button class="buy-button" (click)="buyProduct(product.id)">Köp</button>
+    </section>
+  </main>
+  
