@@ -1,13 +1,14 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import axios from "axios";
 
 interface Product {
   id: number;
   productName: string;
   price: number;
-  description: string;
   category: string;
+  description: string;
   stockLevel: number;
   imgUrl: string;
 }
@@ -15,7 +16,7 @@ interface Product {
 @Component({
   selector: "app-webbshop",
   standalone: true,
-  imports: [CommonModule], // Add CommonModule here
+  imports: [CommonModule, RouterModule], // Add CommonModule here
   templateUrl: "./webbshop.component.html",
   styleUrls: ["./webbshop.component.scss"]
 })
@@ -44,4 +45,10 @@ export class WebbshopComponent implements OnInit {
     console.log(`Köpt produkt med ID: ${productId}`);
     // Här kan du lägga till mer logik för att hantera köpet, t.ex. lägga till i kundvagn eller beställning
   }
+  readMore(productId: number) {
+    console.log(`Läs mer om produkt med ID: ${productId}`);
+  }
 }
+
+
+

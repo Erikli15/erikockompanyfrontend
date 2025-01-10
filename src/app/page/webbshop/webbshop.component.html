@@ -1,16 +1,17 @@
 
 
 <main id="mainDockment">
-    <section class="product-card" *ngFor="let product of products">
-      <article class="product-image">
-        <img class="img" [src]="product.imgUrl" alt="Bild saknas">
-      </article>
-      <article class="product-info">
-        <p class="product-id">ID: {{ product.id }}</p>
-        <h2 class="product-name">{{ product.productName }}</h2>
-        <p class="product-price">Pris: {{ product.price }} kr</p>
-      </article>
-      <button class="buy-button" (click)="buyProduct(product.id)">Köp</button>
-    </section>
-  </main>
-  
+  <section class="product-card" *ngFor="let product of products">
+    <article class="product-image">
+      <img class="img" [src]="product.imgUrl" alt="Bild saknas">
+    </article>
+    <article class="product-info">
+      <p class="product-id">ID: {{ product.id }}</p>
+      <h2 class="product-name">{{ product.productName }}</h2>
+      <p class="product-price">Pris: {{ product.price }} kr</p>
+    </article>
+    <button class="buy-button" (click)="buyProduct(product.id)">Köp</button>
+    <!-- Navigera till produktdetaljer -->
+    <button class="read-more" [routerLink]="['/product', product.id]">Läs mer</button>
+  </section>
+</main>

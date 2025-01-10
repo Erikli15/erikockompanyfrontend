@@ -1,1 +1,15 @@
-<p>product works!</p>
+<main id="productDetail">
+  <section class="product-detail-card">
+    <article class="product-image">
+      <img class="img" [src]="product?.imgUrl" alt="Bild saknas">
+    </article>
+    <article class="product-info" *ngIf="product">
+      <p class="product-id">ID: {{ product.id }}</p>
+      <h2 class="product-name">{{ product.productName }}</h2>
+      <p class="product-price">Pris: {{ product.price }} kr</p>
+      <p class="product-description">deskriptions: {{ product.category }}</p>
+      <!-- <p class="product-category">Kategori: {{ product.category }}</p> -->
+    </article>
+    <button class="buy-button" (click)="onBuyClick(product?.id)">Köp</button>
+  </section>
+</main>
