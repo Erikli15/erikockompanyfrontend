@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="se">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startsida</title>
-</head>
-<body>
-    <main>
+
+    <main class="home-contaner">
         <h1>Wläkommen till Erik O`Company</h1>
         <p>Vi säljer smarta eltronik prylar till ett billigt pris!</p>
-        <button><a href="/webbshop">Gå till butiken</a></button>
+        <a href="/webbshop"><button>Gå till butiken</button></a>
 
         <section>
             <h2>Bildspel på några produkter</h2>
             <div #bildContainer class="bildspel">
-                <div class="bild">
-                    <img src="bild1.jpg" alt="Bild 1">
-                </div>
-                <div class="bild">
-                    <img src="bild2.jpg" alt="Bild 2">
-                </div>
-                <div class="bild">
-                    <img src="bild3.jpg" alt="Bild 3">
-                </div>
+              <img class="bild active" src="https://storage.cloud.google.com/erikocompany/Bilder/usb.jpg" alt="Bild 1">
+              <img class="bild" src="https://storage.cloud.google.com/erikocompany/Bilder/dragekedjeh%C3%B6rlurargr%C3%B6n.jpg" alt="Bild 2">
+              <img class="bild" src="https://storage.cloud.google.com/erikocompany/Bilder/appleformatgr%C3%B6n.jpg" alt="Bild 3">
             </div>
-        </section>
+          </section>
         <section>
             <h2>Mest visade produkter</h2>
-            <div class="popular-card"></div>
+            <div class="popular-card">
+                
+            </div>
         </section>
 
         <section>
@@ -51,5 +40,3 @@
             </div>
         </section>
     </main>
-</body>
-</html>

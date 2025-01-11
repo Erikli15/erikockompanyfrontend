@@ -9,7 +9,7 @@ interface Product {
   productName: string;
   price: number;
   category: string;
-  description: string;
+  descriptions: string;
   stockLevel: number;
   imgUrl: string;
 }
@@ -18,7 +18,7 @@ interface Product {
   selector: 'app-product',
   imports: [CommonModule], // Add CommonModule here
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrl: './product.component.scss'
 })
 export class ProductComponent implements OnInit {
   product: Product | undefined;

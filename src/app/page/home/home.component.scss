@@ -1,131 +1,91 @@
-:host {
+@use '../../../styles.scss' as *;
+
+
+.home-container {
+  background-color: $background-color;
+  color: $text-color;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  padding: 20px;
-}
-
-.content {
-  flex: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
-}
-main {
-  height: 100%;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-  color: #00698f;
+  margin: 0 auto; // Centrerar containern horisontellt
+  max-width: 1200px; // Sätt en maxbredd för att förhindra att innehållet blir för brett
 }
 
 h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-family: 'Helvetica', sans-serif;
+  color: $primary-color;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-family: 'Helvetica', sans-serif;
+  color: $Deep-Sapphire;
 }
 
 button {
-  background-color: #00698f;
-  color: #fff;
+  background-color: $primary-color;
+  color: $white;
   border: none;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-}
+  border-radius: 5px;
+  transition: background-color 0.3s;
 
-button:hover {
-  background-color: #004d6f;
-}
+  &:hover {
+    background-color: $secondary-color;
+  }
 
-/* Bildspel-styling */
+  &:focus {
+    outline: none;
+  }
+}
 
 .bildspel {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-}
-
-.bild {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.5s;
-}
-
-.bild img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Mest visade produkter-styling */
-
-.popular-card {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+  width: 100px;
+  height: 100px;
+  gap: 10px;
+  overflow: hidden; // Gömmer bilder som inte är aktiva
+  justify-content: center; // Centrerar bildspelet horisontellt
 
-.popular-card .card {
-  margin: 20px;
-  width: calc(33.33% - 20px);
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
+  .bild {
+    display: none; // Dölj alla bilder som standard
+    flex: 0 0 auto;
+    width: 100%;
+    opacity: 0.5; // Gör bilderna halvgenomskinliga som standard
+    transition: opacity 0.5s ease; // Lägg till en mjuk övergångseffekt
 
-.popular-card .card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
+    &.active {
+      display: block; // Visa endast den aktiva bilden
+      opacity: 1; // Gör den aktiva bilden helt synlig
+    }
 
-/* Kund omdöme-styling */
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+}
 
 .review {
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: auto;
+  background-color: $light-gray;
+  padding: 15px;
+  margin: 0 auto 20px; // Centrerar recensionen horisontellt
+  border-radius: 5px;
 
-.review h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
+  .customer {
+    font-weight: bold;
+  }
 
-.review p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.review .rating {
-  font-size: 24px;
-  color: #ffd700;
-}
-
-.customer {
-  font-weight: bold;
+  .rating {
+    margin-top: 10px;
+  }
 }

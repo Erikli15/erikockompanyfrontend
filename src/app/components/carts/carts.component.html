@@ -1,0 +1,10 @@
+<div class="cart">
+    <h2>Din kundvagn</h2>
+    <ul>
+      <li *ngFor="let product of cartProducts">
+        {{ product.productName }} - {{ product.price }} kr
+      </li>
+    </ul>
+    <div *ngIf="cartProducts.length === 0">Din kundvagn är tom.</div>
+  </div>
+  

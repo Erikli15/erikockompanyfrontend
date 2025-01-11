@@ -1,23 +1,128 @@
-body, html {
-  height: 100%;
+
+/* Reset some default styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+}
+$primary-color: #3498db;  // Blå
+$Deep-Sapphire: #2F2B75;
+$secondary-color: #2ecc71;  // Grön
+$background-color: #f4f4f4;  // Ljusgrå
+$text-color: #333;  // Mörkgrå
+$accent-color: #FF0000;  // Röd
+$light-gray: #E6E6E6;
+$dark-gray: #454545;
+$black: #000000;
+$white: #FFFFFF;
+
+/* Standard (för desktop och större enheter) */
+body {
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+  background-color: $background-color;
 }
 
-app-root {
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica', sans-serif;
+  color: $primary-color;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+button {
+  background-color: $primary-color;
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
   height: 100%;
+  width: 100%;
 }
 
-router-outlet {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Ändrad från 'auto' */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
 }
 
-app-header, app-footer {
-  height: 10%; /* Justerad höjd */
+/* Media Query för iPad och mindre skärmar (768px till 1024px) */
+@media (max-width: 1024px) {
+  p {
+    font-size: 14px; /* Minska textstorlek på iPad */
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }
+
+/* Media Query för telefon (max-width 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px; /* Justera fontstorlek för telefon */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.2rem; /* Justera storleken på rubriker */
+  }
+
+  p {
+    font-size: 12px; /* Minska textstorlek för små skärmar */
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* En kolumn på telefon */
+    gap: 10px;
+  }
+
+  button {
+    padding: 8px 16px; /* Justera padding på knappar för telefon */
+    font-size: 14px;
+  }
+}
+
 

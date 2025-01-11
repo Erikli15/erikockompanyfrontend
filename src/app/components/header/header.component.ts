@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from '../carts/carts.component'; // Importera CartComponent
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, CartComponent, HttpClientModule], // Import CommonModule here
+  imports: [CommonModule, HttpClientModule, RouterModule, CartComponent], // Import CommonModule here
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
 

@@ -1,77 +1,102 @@
+@use '../../../styles.scss' as *;
 
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin: 0;
-  padding: 0;
+
+.contact-component {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4;
+  background-color: $background-color;
+  padding: 20px;
+  border-radius: 10px;
 }
+
 .contact-form {
-  background-color: #fff;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: auto;
+  background-color: $white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+h2 {
+  font-size: 1.8rem;
+  color: $primary-color;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: $Deep-Sapphire;
+  margin-bottom: 10px;
+}
+
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  margin-bottom: 15px;
 }
-.form-group label {
-  font-weight: bold;
+
+label {
+  font-size: 1rem;
+  color: $dark-gray;
 }
-.form-group input, .form-group textarea {
+
+input, textarea {
+  width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: none; /* Lägg till denna rad för att inaktivera resizing */
+
 }
-.btn-submit {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+
+button.btn-submit {
+  background-color: $primary-color;
+  color: $white;
+  padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
 }
-.btn-submit:hover {
-  background-color: #0056b3;
-}
+
 .form-message {
-  text-align: center;
-  color: #28a745;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: $text-color;
 }
+
 .contact-info, .postal-address {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-top: 30px;
 }
-.contact-info h3, .postal-address h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #333;
-}
+
 .contact-info p, .postal-address p {
-  margin: 0;
-  font-size: 16px;
-  color: #555;
+  font-size: 1rem;
+  color: $dark-gray;
 }
-.contact-info a {
-  color: #007bff;
+
+a {
+  color: $primary-color;
   text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
+
+  &:hover {
+    color: $secondary-color;
+  }
 }

@@ -1,9 +1,10 @@
-import { CommonModule } from "@angular/common";
-import { Component, OnInit } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import axios from "axios";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { CartService } from '../../cart.service'; // Importera CartService
+import axios from 'axios';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
-interface Product {
+export interface Product {
   id: number;
   productName: string;
   price: number;
@@ -14,16 +15,15 @@ interface Product {
 }
 
 @Component({
-  selector: "app-webbshop",
-  standalone: true,
-  imports: [CommonModule, RouterModule], // Add CommonModule here
-  templateUrl: "./webbshop.component.html",
-  styleUrls: ["./webbshop.component.scss"]
+  selector: 'app-webbshop',
+  templateUrl: './webbshop.component.html',
+  styleUrl: './webbshop.component.scss',
+    imports: [CommonModule, RouterLink], // Add CommonModule here 
 })
 export class WebbshopComponent implements OnInit {
   products: Product[] = [];
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
     this.fetchProducts();
@@ -31,24 +31,20 @@ export class WebbshopComponent implements OnInit {
 
   fetchProducts() {
     axios
-      .get("http://localhost:3000/products")
+      .get('http://localhost:3000/products')
       .then((response) => {
-        const products: Product[] = response.data;
-        this.products = products; // Lagra de hämtade produkterna
+        this.products = response.data; // Sätt produkterna från API-svaret
       })
       .catch((error) => {
-        console.error("Error fetching products:", error);
+        console.error('Error fetching products:', error);
       });
   }
 
   buyProduct(productId: number) {
-    console.log(`Köpt produkt med ID: ${productId}`);
-    // Här kan du lägga till mer logik för att hantera köpet, t.ex. lägga till i kundvagn eller beställning
-  }
-  readMore(productId: number) {
-    console.log(`Läs mer om produkt med ID: ${productId}`);
+    const product = this.products.find(p => p.id === productId);
+    if (product) {
+      this.cartService.addProduct(product); // Lägg till produkten i kundvagnen via CartService
+      console.log('Köpt produkt:', product);
+    }
   }
 }
-
-
-

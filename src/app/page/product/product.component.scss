@@ -1,81 +1,61 @@
-#productDetail {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
+@use '../../../styles.scss' as *;
 
-.product-detail-card {
+#productDetail{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 400px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
 }
-
-.product-detail-card:hover {
-  transform: scale(1.05);
-}
-
-.product-image img {
-  width: 100%;
+.product-detail-card {
+  width: 300px;
   height: auto;
-  object-fit: cover;
+  background-color: $white;
+  padding: 20px;
   border-radius: 10px;
-}
-
-.product-info {
-  margin-top: 20px;
-}
-
-.product-id {
-  font-size: 0.9em;
-  color: #888;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-name {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
-  margin: 10px 0;
+  font-size: 24px;
+  color: $primary-color;
 }
 
 .product-price {
-  font-size: 1.2em;
-  color: #27ae60;
-  margin: 10px 0;
-}
-
-.product-description {
-  font-size: 1em;
-  color: #555;
-  margin: 10px 0;
-  line-height: 1.4;
-}
-
-.product-category {
-  font-size: 1em;
-  color: #7f8c8d;
+  color: $secondary-color;
+  font-weight: bold;
 }
 
 .buy-button {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px 15px;
-  font-size: 1.1em;
-  border: none;
+  background-color: $primary-color;
+  color: $white;
   border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
   cursor: pointer;
-  width: 100%;
-  margin-top: 20px;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+.back {
+  background-color: $primary-color;
+  color: $white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $accent-color;
+  }
+}
+.product-image {
+  max-width: 100%;
+  height: auto;
 }
 
-.buy-button:hover {
-  background-color: #2980b9;
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
