@@ -52,10 +52,10 @@ export class KlarnaCheckoutComponent implements OnInit, AfterViewInit {
       city: formData.value.city,
       useAsShippingAddress: formData.value.useAsShippingAddress,
       orderDetails: {
-        product: 'Produkt 1',
+        product: 'Produkt 21',
         quantity: 1,
-        unitPrice: 1000,
-        taxRate: 20
+        unitPrice: 2000,
+        taxRate: 25,
       }
     };
   
