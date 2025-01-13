@@ -12,6 +12,7 @@ export interface Product {
   description: string;
   stockLevel: number;
   imgUrl: string;
+  quantity: number; // Lägg till quantity-egenskapen
 }
 
 @Component({
