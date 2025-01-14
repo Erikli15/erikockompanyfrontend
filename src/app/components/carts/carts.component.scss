@@ -1,61 +1,86 @@
 @use '../../../styles.scss' as *; // Import the main styles from the specified path
 
+// General styling for the modal element
+.modal {
+  position: fixed; // Fixed position to keep the modal in place on the screen
+  top: 50%; // Position the modal in the middle of the screen vertically
+  left: 50%; // Position the modal in the middle of the screen horizontally
+  transform: translate(-50%, -50%); // Adjust the position to perfectly center the modal
+  padding: 20px; // Add padding inside the modal
+}
+
+// Styling for the modal dialog when it's inside the #cartModal
 #cartModal .modal-dialog {
-  display: flex; // Use flexbox layout for the modal dialog
-  align-items: center; // Vertically center the content
-  justify-content: center; // Horizontally center the content
-  min-height: 100vh; /* Full screen height for the modal */
-  margin: 0; /* Ensure there are no unexpected margins */
+  display: flex; // Use flexbox to layout child elements
+  justify-content: center; // Horizontally center the modal dialog
+  align-items: center; // Vertically center the modal dialog
+  width: auto; // Allow the dialog width to be automatically determined
+  height: auto; // Allow the dialog height to be automatically determined based on content
+  margin: 0; // Remove any default margin
 }
 
+// Styling for the modal content
 #cartModal .modal-content {
-  width: 70%; /* Set the modal width to 70% of the screen */
-  max-width: 900px; /* Maximum width of 900px */
-  margin: 0 auto; /* Center horizontally */
-  position: relative; 
-  top: 50%; /* Move the modal vertically to the center */
-  transform: translateY(-50%); /* Vertically center the modal */
-  border-radius: 10px; /* Rounded corners */
+  width: 100%; // Set the modal content width to fill the entire modal container
+  height: 100%; // Set the modal content height to fill the entire modal container
+  background-color: $primary-color; // Use the primary color for the background
+  color: $white; // Set text color to black
+  border-radius: 10px; // Round the corners with a 10px radius
+  padding: 20px; // Add padding inside the modal content
+  display: flex; // Use flexbox for the layout of the content
+  flex-direction: column; // Arrange the content vertically
 }
 
+// Styling for the modal header
 #cartModal .modal-header {
-  background-color: $primary-color; /* Set the background color of the header */
-  color: $dark-gray; /* Set text color to dark gray */
-  font-family: 'Arial', sans-serif; /* Use Arial font */
-  border-top-left-radius: 10px; /* Rounded top left corner */
-  border-top-right-radius: 10px; /* Rounded top right corner */
-  padding: 20px; /* Add more padding for better appearance */
+  font-family: 'Arial', sans-serif; // Use Arial font for the header text
+  border-top-left-radius: 10px; // Round the top-left corner
+  border-top-right-radius: 10px; // Round the top-right corner
+  padding: 20px; // Add padding inside the header
 }
 
+// Styling for the modal body
 #cartModal .modal-body {
-  padding: 20px; /* Add padding inside the body of the modal */
+  flex-grow: 1; // Allow the body content to expand and take up remaining space
+  padding: 20px; // Add padding inside the body
+  overflow-y: auto; // Enable vertical scrolling if content exceeds the body height
 }
 
+// Styling for the modal footer
 #cartModal .modal-footer {
-  background-color: $light-gray; /* Set the background color of the footer */
-  border-bottom-left-radius: 10px; /* Rounded bottom left corner */
-  border-bottom-right-radius: 10px; /* Rounded bottom right corner */
-  padding: 15px; /* Padding for the footer */
-  text-align: right; /* Align text to the right in the footer */
+  border-bottom-left-radius: 10px; // Round the bottom-left corner
+  border-bottom-right-radius: 10px; // Round the bottom-right corner
+  padding: 15px; // Add padding inside the footer
+  text-align: right; // Align footer content to the right
 }
 
-#cartModal .modal-footer .btn-secondary {
-  background-color: $dark-gray; /* Set the background color of secondary buttons */
-  border-color: $dark-gray; /* Border color of secondary buttons */
-  color: $white; /* Set text color to white */
-}
 
+// Styling for the primary button in the modal footer
 #cartModal .modal-footer .btn-primary {
-  background-color: $secondary-color; /* Set the background color of primary buttons */
-  border-color: $secondary-color; /* Border color of primary buttons */
-  color: $white; /* Set text color to white */
-  margin-left: 10px; /* Add margin between buttons */
+  background-color: $secondary-color; // Set the button background color to the secondary color
+  border-color: $secondary-color; // Set the button border color to the secondary color
+  color: $black; // Set the text color to black
+  margin-left: 10px; // Add left margin to the button
+}
+.modal-footer{
+  display: flex;
+  justify-content: space-between;
 }
 
+.btn btn-secondary{
+  background-color: $accent-color;
+}
+
+// Media query for screens with a maximum width of 768px
 @media (max-width: 768px) {
   #cartModal .modal-content {
-    width: 90%; /* Make the modal width 90% on smaller screens */
+    width: 90%; // On smaller screens, set the modal content width to 90% of the screen
   }
 }
+
+
+
+
+
 
 

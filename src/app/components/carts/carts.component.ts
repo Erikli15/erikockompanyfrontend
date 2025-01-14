@@ -36,7 +36,7 @@ export class CartsComponent implements OnInit {
 
   // Method to add a product to the cart
   addToCart(product: Product): void {
-    this.cartService.addProductToCart(product);
+    this.cartService.addProduct(product);
   }
 
   // Method to retrieve the total number of items in the cart
