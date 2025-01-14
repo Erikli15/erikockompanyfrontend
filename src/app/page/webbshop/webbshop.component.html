@@ -1,16 +1,28 @@
 
 <main id="mainDockment">
+  <!-- Iterate through the products array and display each product's information -->
   <section class="product-card" *ngFor="let product of products">
+    
+    <!-- Product Image Section -->
     <article class="product-image">
-      <img class="img" [src]="product.imgUrl" alt="Bild saknas">
+      <!-- Display the product image, with a fallback alt text if the image is missing -->
+      <img class="img" [src]="product.imgUrl" alt="Image missing">
     </article>
+    
+    <!-- Product Information Section -->
     <article class="product-info">
+      <!-- Display the product ID -->
       <p class="product-id">ID: {{ product.id }}</p>
+      <!-- Display the product name -->
       <h2 class="product-name">{{ product.productName }}</h2>
-      <p class="product-price">Pris: {{ product.price }} kr</p>
+      <!-- Display the product price -->
+      <p class="product-price">Price: {{ product.price }} SEK</p>
     </article>
-    <button class="buy-button" (click)="buyProduct(product.id)">Köp</button>
-    <!-- Navigera till produktdetaljer -->
-    <button class="read-more" [routerLink]="['/product', product.id]">Läs mer</button>
+    
+    <!-- Button to trigger the purchase action, passing the product ID to the function -->
+    <button class="buy-button" (click)="buyProduct(product.id)">Buy</button>
+    
+    <!-- Button to navigate to the product's detailed page, using Angular's router -->
+    <button class="read-more" [routerLink]="['/product', product.id]">Read more</button>
   </section>
 </main>

@@ -1,31 +1,65 @@
-@use '../../../styles.scss' as *;
+@use '../../../styles.scss' as *; // Importing styles from a global stylesheet
 
 .about-container {
-  background-color: $white;
-  border-radius: 12px;  // Slightly round the corners more
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  // Soft shadow with better spread
-  padding: 2rem;  // Add padding to give space around the content
-  max-width: 800px;  // Increase max width for better readability
-  margin: 3rem auto;  // Center the container and add margin at the top and bottom
-  text-align: center;
-  height: 100vh;
-
+  background-color: $white; 
+  // Sets the background color to white using a variable from the imported styles.
+  
+  border-radius: 12px; 
+  // Applies rounded corners with a radius of 12px for a softer, more modern look.
+  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  // Adds a soft shadow with a horizontal offset of 0px, vertical offset of 4px, 
+  // a blur radius of 15px, and a very light opacity (0.1) to give a subtle lift effect.
+  
+  padding: 2rem; 
+  // Adds padding around the content inside the container, giving it space from the edges.
+  
+  max-width: 800px; 
+  // Limits the maximum width of the container to 800px, ensuring the content doesn't stretch too wide.
+  
+  margin: 3rem auto; 
+  // Centers the container horizontally and adds a top and bottom margin of 3rem.
+  
+  text-align: center; 
+  // Centers the text inside the container.
+  
+  height: 100vh; 
+  // Sets the height of the container to 100% of the viewport height, ensuring it's full screen.
+  
   section {
     margin: 0 auto;
-    max-width: 700px;  // Set max width to prevent content from being too wide
+    // Centers the section inside the container.
+    
+    max-width: 700px; 
+    // Limits the maximum width of the section to 700px, preventing it from being too wide.
   }
 
   h1 {
-    color: $primary-color;
-    font-size: 2.5rem;  // Increase the size for prominence
-    margin-bottom: 1rem;  // Add space below the heading
+    color: $primary-color; 
+    // Applies the primary color to the h1 element using a variable from the imported styles.
+    
+    font-size: 2.5rem; 
+    // Sets the font size of the heading to 2.5rem, making it prominent.
+    
+    margin-bottom: 1rem; 
+    // Adds space below the heading to separate it from the content below.
   }
 
   p {
-    color: $text-color;
-    font-size: 1.2rem;  // Keep the font size readable
-    line-height: 1.8;  // Increased line height for better readability
-    margin: 0 auto;  // Center align the text
-    max-width: 650px;  // Prevent text from stretching too far across the screen
+    color: $text-color; 
+    // Applies the text color from the imported styles to the paragraph.
+    
+    font-size: 1.2rem; 
+    // Sets the font size to 1.2rem, ensuring readability.
+    
+    line-height: 1.8; 
+    // Increases line height to 1.8, improving text readability by giving more space between lines.
+    
+    margin: 0 auto; 
+    // Centers the paragraph text.
+    
+    max-width: 650px; 
+    // Restricts the paragraph's maximum width to 650px, ensuring it doesn't stretch too far across the screen.
   }
 }
+

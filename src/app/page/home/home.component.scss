@@ -1,91 +1,100 @@
-@use '../../../styles.scss' as *;
+@use '../../../styles.scss' as *; // Importing styles from an external SCSS file
 
-
+// Styling for the home container
 .home-container {
-  background-color: $background-color;
-  color: $text-color;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; // Centrerar containern horisontellt
-  max-width: 1200px; // Sätt en maxbredd för att förhindra att innehållet blir för brett
+  background-color: $background-color; // Background color set from variable $background-color
+  color: $text-color; // Text color set from variable $text-color
+  padding: 20px; // Adding 20px padding around the container
+  display: flex; // Using flexbox for layout
+  flex-direction: column; // Aligning flex items in a column direction
+  justify-content: center; // Vertically centering items within the container
+  align-items: center; // Horizontally centering items within the container
+  margin: 0 auto; // Centers the container horizontally on the page
+  max-width: 1200px; // Limits the container's width to 1200px to avoid it becoming too wide
 }
 
+// Styling for the main heading (h1)
 h1 {
-  font-family: 'Helvetica', sans-serif;
-  color: $primary-color;
+  font-family: 'Helvetica', sans-serif; // Using Helvetica font for the heading
+  color: $primary-color; // Text color set from variable $primary-color
 }
 
+// Styling for the secondary heading (h2)
 h2 {
-  font-family: 'Helvetica', sans-serif;
-  color: $Deep-Sapphire;
+  font-family: 'Helvetica', sans-serif; // Using Helvetica font for the secondary heading
+  color: $Deep-Sapphire; // Text color set from variable $Deep-Sapphire
 }
 
+// Styling for buttons
 button {
-  background-color: $primary-color;
-  color: $white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  background-color: $primary-color; // Background color set from variable $primary-color
+  color: $white; // Text color set to white
+  border: none; // Removing the border
+  padding: 10px 20px; // Padding inside the button
+  font-size: 16px; // Font size set to 16px
+  cursor: pointer; // Changing cursor to pointer on hover
+  border-radius: 5px; // Rounding the button corners
+  transition: background-color 0.3s; // Adding a smooth transition effect for background color change on hover
 
   &:hover {
-    background-color: $secondary-color;
+    background-color: $secondary-color; // Changes background color when hovering, using $secondary-color variable
   }
 
   &:focus {
-    outline: none;
+    outline: none; // Removes outline when the button is focused
   }
 }
 
+// Styling for the image slideshow (bildspel)
 .bildspel {
-  display: flex;
-  width: 100px;
-  height: 100px;
-  gap: 10px;
-  overflow: hidden; // Gömmer bilder som inte är aktiva
-  justify-content: center; // Centrerar bildspelet horisontellt
+  display: flex; // Using flexbox for layout
+  width: 100px; // Setting width to 100px for the container
+  height: 100px; // Setting height to 100px for the container
+  gap: 10px; // Adding a 10px gap between images
+  overflow: hidden; // Hides images that aren't active (to avoid them overflowing)
+  justify-content: center; // Horizontally centers the images within the container
 
+  // Styling for individual images in the slideshow
   .bild {
-    display: none; // Dölj alla bilder som standard
-    flex: 0 0 auto;
-    width: 100%;
-    opacity: 0.5; // Gör bilderna halvgenomskinliga som standard
-    transition: opacity 0.5s ease; // Lägg till en mjuk övergångseffekt
+    display: none; // Hides all images by default
+    flex: 0 0 auto; // Prevents images from stretching or shrinking
+    width: 100%; // Makes images take up full width of their container
+    opacity: 0.5; // Makes images semi-transparent by default
+    transition: opacity 0.5s ease; // Adds a smooth transition effect for opacity change
 
     &.active {
-      display: block; // Visa endast den aktiva bilden
-      opacity: 1; // Gör den aktiva bilden helt synlig
+      display: block; // Only displays the image with the "active" class
+      opacity: 1; // Makes the active image fully opaque
     }
 
+    // Styling for the image element inside the "bild" class
     img {
-      width: 100%;
-      border-radius: 10px;
+      width: 100%; // Makes the image take up the full width of the container
+      border-radius: 10px; // Rounds the corners of the image
     }
   }
 }
 
+// Styling for customer reviews
 .review {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 800px;
-  height: auto;
-  background-color: $light-gray;
-  padding: 15px;
-  margin: 0 auto 20px; // Centrerar recensionen horisontellt
-  border-radius: 5px;
+  display: flex; // Using flexbox for layout
+  flex-direction: column; // Arranges the items in a column direction
+  justify-content: center; // Vertically centers the review content
+  align-items: center; // Horizontally centers the review content
+  width: 800px; // Setting the width to 800px
+  height: auto; // Height adjusts automatically based on content
+  background-color: $light-gray; // Background color set from variable $light-gray
+  padding: 15px; // Adding 15px padding inside the review container
+  margin: 0 auto 20px; // Centers the review horizontally and adds bottom margin of 20px
+  border-radius: 5px; // Rounds the corners of the review container
 
+  // Styling for the customer name
   .customer {
-    font-weight: bold;
+    font-weight: bold; // Makes the customer's name bold
   }
 
+  // Styling for the rating section
   .rating {
-    margin-top: 10px;
+    margin-top: 10px; // Adds a 10px margin on top of the rating section
   }
 }

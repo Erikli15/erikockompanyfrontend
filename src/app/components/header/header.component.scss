@@ -1,31 +1,30 @@
-@use '../../../styles.scss' as *;
-
+@use '../../../styles.scss' as *; // Importing styles from a global stylesheet
 
 header {
-  display: flex; // Aktiverar Flexbox
-  justify-content: space-between; // Sprider ut innehållet jämnt
-  align-items: center; // Centrerar innehållet vertikalt
-  background-color: $Deep-Sapphire; // Använd en global variabel
-  color: $white; // En annan global färg
-  padding: 10px 20px; // Lägg till padding för att ge lite utrymme
-  position: relative;
+  display: flex; // Enables Flexbox for layout
+  justify-content: space-between; // Distributes space evenly between items
+  align-items: center; // Vertically centers the items
+  background-color: $Deep-Sapphire; // Uses a global variable for the background color
+  color: $white; // Uses a global variable for text color
+  padding: 10px 20px; // Adds padding around the header content
+  position: relative; // Sets the header's position relative for absolute positioning of child elements
   nav {
     ul {
-      display: flex;
-      list-style-type: none;
-      margin: 0; // Ta bort standardmarginal
-      padding: 0; // Ta bort standardpadding
+      display: flex; // Sets the navigation items in a row
+      list-style-type: none; // Removes default list styling
+      margin: 0; // Removes default margin
+      padding: 0; // Removes default padding
 
       li {
-        margin-right: 15px;
+        margin-right: 15px; // Adds spacing between list items
       }
 
       a {
-        color: $white;
-        text-decoration: none;
+        color: $white; // Sets the link color to white
+        text-decoration: none; // Removes the underline from links
 
         &:hover {
-          color: $secondary-color;
+          color: $secondary-color; // Changes the color on hover using a global variable
         }
       }
     }
@@ -33,96 +32,96 @@ header {
 
   #loginButton,
   #logoutButton {
-    background-color: $primary-color;
-    color: $white;
-    padding: 10px 20px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    background-color: $primary-color; // Sets background color using a global variable
+    color: $white; // Sets text color to white
+    padding: 10px 20px; // Adds padding around the button text
+    border: none; // Removes border
+    font-size: 16px; // Sets the font size
+    cursor: pointer; // Changes cursor to pointer to indicate it's clickable
+    border-radius: 5px; // Rounds the corners of the button
+    transition: background-color 0.3s; // Adds a smooth transition effect for background color change
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: $secondary-color; // Changes background color on hover
     }
 
     &:focus {
-      outline: none;
+      outline: none; // Removes the focus outline (for cleaner look)
     }
   }
 
   app-cart {
-    margin-left: 20px; // Justera vid behov
+    margin-left: 20px; // Adds left margin to the cart icon or component
   }
 
   .logo{
-    width: 200px;
-    height: 200px;
-    margin: 20px;
+    width: 200px; // Sets the width of the logo
+    height: 200px; // Sets the height of the logo
+    margin: 20px; // Adds margin around the logo
   }
   .logo img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
+    border-radius: 50%; // Makes the image circular
+    width: 100%; // Makes the image fill the logo container
+    height: 100%; // Makes the image fill the logo container
   }
 }
 
 button:focus {
-  outline: none;
+  outline: none; // Removes the focus outline from any button (for cleaner look)
 }
 
 app-cart {
-  margin-left: 20px;
+  margin-left: 20px; // Ensures consistent margin-left for the cart icon/component
 }
 
-/* Media Query för iPad och mindre skärmar (768px till 1024px) */
+/* Media Query for iPad and smaller screens (768px to 1024px) */
 @media (max-width: 1024px) {
   nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column; // Changes the navigation list to a vertical column on smaller screens
+    align-items: center; // Centers the list items horizontally
+    gap: 10px; // Adds a gap between items
   }
 
   nav ul li {
-    margin-bottom: 10px;
+    margin-bottom: 10px; // Adds bottom margin to each list item
   }
 
   header {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; // Stacks header items vertically
+    align-items: center; // Centers header items horizontally
   }
 
   button {
-    width: 100%;
-    padding: 8px 16px;
-    font-size: 14px;
+    width: 100%; // Makes buttons take up the full width
+    padding: 8px 16px; // Adjusts padding to be smaller
+    font-size: 14px; // Reduces font size for smaller screens
   }
 
   app-cart {
-    margin-top: 10px;
+    margin-top: 10px; // Adds top margin to the cart icon/component on smaller screens
   }
 }
 
-/* Media Query för telefon (max-width 767px) */
+/* Media Query for mobile phones (max-width 767px) */
 @media (max-width: 767px) {
   nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column; // Changes the navigation list to a vertical column for even smaller screens
+    align-items: center; // Centers the list items horizontally
+    gap: 10px; // Adds gap between items
   }
 
   button {
-    width: 100%;
-    padding: 8px 16px;
-    font-size: 14px;
+    width: 100%; // Makes buttons take up the full width
+    padding: 8px 16px; // Adjusts padding for smaller screens
+    font-size: 14px; // Reduces font size for mobile devices
   }
 
   header {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; // Stacks header items vertically for smaller screens
+    align-items: center; // Centers the header content horizontally
   }
 
   app-cart {
-    margin-top: 10px;
+    margin-top: 10px; // Adds margin on top of the cart icon/component
   }
 }

@@ -1,128 +1,132 @@
-
 /* Reset some default styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: auto;
-  height: auto;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Use border-box for box sizing, includes padding and border within the element's total width and height */
+  width: auto; /* Set default width to auto */
+  height: auto; /* Set default height to auto */
 }
-$primary-color: #3498db;  // Blå
-$Deep-Sapphire: #2F2B75;
-$secondary-color: #2ecc71;  // Grön
-$background-color: #f4f4f4;  // Ljusgrå
-$text-color: #333;  // Mörkgrå
-$accent-color: #FF0000;  // Röd
+
+/* Color Variables */
+$primary-color: #3498db;  // Blue
+$Deep-Sapphire: #2F2B75;  // Dark blue
+$secondary-color: #2ecc71;  // Green
+$background-color: #f4f4f4;  // Light gray
+$text-color: #333;  // Dark gray for text
+$accent-color: #FF0000;  // Red (accent)
 $light-gray: #E6E6E6;
 $dark-gray: #454545;
 $black: #000000;
 $white: #FFFFFF;
 
-/* Standard (för desktop och större enheter) */
+/* Standard styles for body, text, and headings */
 body {
-  font-family: 'Arial', sans-serif;
-  color: $text-color;
-  background-color: $background-color;
+  font-family: 'Arial', sans-serif; /* Apply Arial font */
+  color: $text-color; /* Apply dark gray text color */
+  background-color: $background-color; /* Set background to light gray */
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Helvetica', sans-serif;
-  color: $primary-color;
+  font-family: 'Helvetica', sans-serif; /* Apply Helvetica font to headings */
+  color: $primary-color; /* Set heading color to primary blue */
 }
 
 p {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 16px; /* Default font size for paragraphs */
+  line-height: 1.5; /* Line height for better readability */
 }
 
 a {
-  color: $primary-color;
-  text-decoration: none;
+  color: $primary-color; /* Set link color to primary blue */
+  text-decoration: none; /* Remove underline from links */
 
   &:hover {
-    color: $secondary-color;
+    color: $secondary-color; /* Change link color to green on hover */
   }
 }
 
 button {
-  background-color: $primary-color;
-  color: $white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  background-color: $primary-color; /* Set button background to blue */
+  color: $white; /* Set button text color to white */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  font-size: 16px; /* Set button font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 5px; /* Round button corners */
+  transition: background-color 0.3s; /* Smooth transition on hover for background color */
 
   &:hover {
-    background-color: $secondary-color;
+    background-color: $secondary-color; /* Change background to green on hover */
   }
 
   &:focus {
-    outline: none;
+    outline: none; /* Remove focus outline */
   }
 }
 
+/* Flexbox container for layout */
 .container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  height: 100%;
-  width: 100%;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Distribute items with space between */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 20px; /* Space between items */
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
 }
 
+/* Grid layout for responsive design */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns, minimum width of 200px per column */
+  gap: 15px; /* Space between grid items */
 }
 
-/* Media Query för iPad och mindre skärmar (768px till 1024px) */
+/* Media Query for iPad and smaller screens (768px to 1024px) */
 @media (max-width: 1024px) {
   p {
-    font-size: 14px; /* Minska textstorlek på iPad */
+    font-size: 14px; /* Reduce paragraph font size on iPad */
   }
 
   .container {
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    justify-content: center; /* Center items vertically */
   }
 
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Use smaller columns for iPad */
   }
 }
 
-/* Media Query för telefon (max-width 767px) */
+/* Media Query for mobile (max-width 767px) */
 @media (max-width: 767px) {
   body {
-    font-size: 14px; /* Justera fontstorlek för telefon */
+    font-size: 14px; /* Adjust body font size for mobile */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-size: 1.2rem; /* Justera storleken på rubriker */
+    font-size: 1.2rem; /* Adjust heading font size for smaller screens */
   }
 
   p {
-    font-size: 12px; /* Minska textstorlek för små skärmar */
+    font-size: 12px; /* Reduce paragraph font size for small screens */
   }
 
   .container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    gap: 10px; /* Smaller gap between items */
   }
 
   .grid {
-    grid-template-columns: 1fr; /* En kolumn på telefon */
-    gap: 10px;
+    grid-template-columns: 1fr; /* Use a single column grid layout on mobile */
+    gap: 10px; /* Smaller gap between items */
   }
 
   button {
-    padding: 8px 16px; /* Justera padding på knappar för telefon */
-    font-size: 14px;
+    padding: 8px 16px; /* Adjust button padding for mobile */
+    font-size: 14px; /* Smaller font size for buttons */
   }
 }
+
 
 

@@ -1,86 +1,101 @@
+// Importing the styles from '../../../styles.scss' with an alias '*'
 @use '../../../styles.scss' as *;
 
+// Main container for the product cards, using flexbox to arrange items
 #mainDockment {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: $background-color;
-  padding: 20px;
+  display: flex;  // Enables flexbox layout
+  flex-direction: row;  // Aligns items in a row (horizontally)
+  flex-wrap: wrap;  // Allows items to wrap onto multiple lines if necessary
+  justify-content: space-between;  // Distributes items evenly with space between
+  background-color: $background-color;  // Sets background color from a variable
+  padding: 20px;  // Adds padding inside the container
 }
 
+// Styling for individual product cards
 .product-card {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 400px;
-  border: 1px solid $light-gray;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: $white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  margin: 5px;
-  background-color: $Deep-Sapphire;
+  display: flex;  // Enables flexbox layout for the product card
+  flex-direction: column;  // Aligns content vertically inside the card
+  width: 400px;  // Fixed width for each product card
+  height: 400px;  // Fixed height for each product card
+  border: 1px solid $light-gray;  // Border with a light gray color
+  padding: 15px;  // Padding inside the card
+  border-radius: 8px;  // Rounded corners for the card
+  background-color: $white;  // Background color set to white
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  // Subtle shadow effect for depth
+  transition: transform 0.3s;  // Smooth transform transition for hover effect
+  margin: 5px;  // Small margin between the cards
+  background-color: $Deep-Sapphire;  // Overrides background color to Deep Sapphire (a dark blue)
+
+  // Hover effect for the product card
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);  // Moves the card slightly upward on hover
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  // Increases shadow on hover for a floating effect
   }
 }
-.product-image{
-  display: flex;
-  width: 200px;
-  height: 200px;
-  justify-content: center;
-  align-items: center;
+
+// Styling for the product image container
+.product-image {
+  display: flex;  // Enables flexbox layout for centering image
+  width: 200px;  // Fixed width for the image container
+  height: 200px;  // Fixed height for the image container
+  justify-content: center;  // Centers the image horizontally
+  align-items: center;  // Centers the image vertically
 }
+
+// Styling for the product image itself
 .product-image img {
-  max-width: 100%;
-  height: 200px; // Sätt en fast höjd
-  width: 100%; // Sätt en fast bredd
-  object-fit: cover; // Säkerställ att bilden fyller utrymmet utan att deformeras
-  border-radius: 5px;
+  max-width: 100%;  // Ensures the image width does not exceed the container
+  height: 200px;  // Sets a fixed height for the image
+  width: 100%;  // Ensures the image takes up full width of the container
+  object-fit: cover;  // Ensures the image covers the container area without distortion
+  border-radius: 5px;  // Rounded corners for the image
 }
 
+// Styling for the product information section
 .product-info {
-  margin-top: 10px;
-  color: $text-color;
+  margin-top: 10px;  // Adds top margin to separate from the image
+  color: $text-color;  // Sets text color using a variable
 
+  // Styling for the product ID (smaller text)
   .product-id {
-    font-size: 0.9rem;
-    color: $dark-gray;
+    font-size: 0.9rem;  // Smaller font size for the ID
+    color: $dark-gray;  // Sets color to dark gray for the ID
   }
 
+  // Styling for the product name (larger, bold text)
   .product-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: $primary-color;
+    font-size: 1.4rem;  // Larger font size for the product name
+    font-weight: bold;  // Makes the product name bold
+    color: $primary-color;  // Sets the color to the primary brand color
   }
 
+  // Styling for the product price (slightly smaller)
   .product-price {
-    font-size: 1.2rem;
-    color: $secondary-color;
+    font-size: 1.2rem;  // Font size for the price
+    color: $secondary-color;  // Sets the price color to the secondary color
   }
 }
 
+// Styling for the buy button and read more button (shared styling)
 .buy-button, .read-more {
-  background-color: $primary-color;
-  color: $white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-  transition: background-color 0.3s;
+  background-color: $primary-color;  // Background color from primary brand color
+  color: $white;  // Text color set to white
+  border: none;  // Removes any default borders
+  padding: 10px 15px;  // Padding inside the buttons
+  font-size: 1rem;  // Standard font size for the button text
+  cursor: pointer;  // Changes the cursor to a pointer when hovering over the button
+  border-radius: 5px;  // Rounded corners for the buttons
+  margin-top: 10px;  // Adds top margin to separate from other elements
+  transition: background-color 0.3s;  // Smooth background color transition on hover
 
+  // Hover effect for buttons
   &:hover {
-    background-color: $secondary-color;
+    background-color: $secondary-color;  // Changes the background color on hover
   }
 
+  // Focus state for buttons (removes the default outline)
   &:focus {
-    outline: none;
+    outline: none;  // Removes the focus outline on the button
   }
 }
-
 

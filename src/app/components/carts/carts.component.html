@@ -1,37 +1,38 @@
-<!-- cart.component.html -->
 <!-- Cart Button -->
+<!-- This button opens the cart modal when clicked -->
 <button id="smallCartButton" name="small-cart-button" type="button" class="text-center btn btn-transparent CartButton" (click)="openModal()">
   <div id="shopping-cart-icon-bg" class="button-bg-round">
+    <!-- Shopping Cart Icon (SVG) -->
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
       <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
     </svg> 
   </div>
-  <p>Kundvagn</p>
+  <p>Kundvagn</p> <!-- Text: "Cart" in Swedish -->
+  <!-- Display the count of items in the cart using a dynamic value -->
   <span class="cartItemCountValue">{{ getCartItemCount() }}</span>
 </button>
 
 <!-- Modal for Cart -->
+<!-- The modal is shown when the cart button is clicked, displaying the products in the cart -->
 <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="cartModalLabel">Din Kundvagn</h5>
+        <!-- Modal title -->
+        <h5 class="modal-title" id="cartModalLabel">Din Kundvagn</h5> <!-- Text: "Your Cart" in Swedish -->
+        <!-- Close button for the modal -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <!-- List of products in the cart -->
         <ul>
           <li *ngFor="let product of cartProducts">
+            <!-- Display product name, quantity, and price for each product in the cart -->
             {{ product.productName }} ({{product.quantity}}) - {{ product.price }} kr
           </li>
         </ul>
-        <div>Total: {{ getFormattedTotal() }}</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
-        <a class="btn btn-primary" href="/checkout">Till kassan</a>
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- Display the total price of the cart -->
+        <div>Total: {{ getFormatte
+
 
 

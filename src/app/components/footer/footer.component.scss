@@ -1,60 +1,70 @@
-@use '../../../styles.scss' as *;
+@use '../../../styles.scss' as *;  // Import styles from another SCSS file to use variables and mixins
 
-/* Fotstil */
+/* Footer Styling */
 footer {
-  background-color: $Deep-Sapphire;
-  color: $white;
-  padding: 20px 0;
-  position: relative;
+  background-color: $Deep-Sapphire;  // Set footer background color using a custom variable
+  color: $white;  // Set text color to white
+  padding: 20px 0;  // Add vertical padding to the footer
+  position: relative;  // Make footer position relative for potential absolute positioning of child elements
 
+  /* Container inside the footer */
   .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex;  // Use Flexbox for layout
+    justify-content: space-between;  // Space out items evenly within the container
+    flex-wrap: wrap;  // Allow items to wrap on smaller screens
+    gap: 20px;  // Add 20px gap between items
   }
 
+  /* Row inside the footer */
   .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex;  // Use Flexbox for layout
+    flex-wrap: wrap;  // Allow items to wrap to new lines
+    gap: 20px;  // Add 20px gap between items in the row
   }
 
+  /* Footer sections like About, Contact, etc. */
   .about, .contact, .socialamedia, .nav {
-    flex: 1;
-    min-width: 200px;
+    flex: 1;  // All sections take equal width
+    min-width: 200px;  // Ensure a minimum width of 200px for each section
   }
 
+  /* Styling for h4 headings in the footer */
   h4 {
-    font-size: 1.5rem;
-    color: $primary-color;
+    font-size: 1.5rem;  // Set font size of h4 to 1.5rem
+    color: $primary-color;  // Use primary color for the heading text
   }
 
+  /* Paragraphs inside the footer */
   p {
-    font-size: 14px;
-    color: $light-gray;
+    font-size: 14px;  // Set font size of paragraphs to 14px
+    color: $light-gray;  // Set color of paragraphs to light gray
   }
 
+  /* Unordered list styling */
   ul {
-    list-style: none;
-    padding: 0;
+    list-style: none;  // Remove bullet points from lists
+    padding: 0;  // Remove padding
   }
 
+  /* Font Awesome icon styling */
   .fa {
-    margin-right: 8px;
+    margin-right: 8px;  // Add right margin to icons for spacing
   }
 
+  /* Navigation item styling */
   .nav-item {
-    color: $secondary-color;
-    cursor: pointer;
+    color: $secondary-color;  // Set default color for navigation items
+    cursor: pointer;  // Change cursor to pointer on hover
     &:hover {
-      color: $accent-color;
+      color: $accent-color;  // Change color on hover to accent color
     }
   }
 
+  /* Copyright section styling */
   .copyright {
-    text-align: center;
-    color: $light-gray;
-    margin-top: 20px;
+    text-align: center;  // Center align the copyright text
+    color: $light-gray;  // Set text color to light gray
+    margin-top: 20px;  // Add a top margin to create space between sections
   }
 }
+

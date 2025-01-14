@@ -1,61 +1,72 @@
-@use '../../../styles.scss' as *;
+@use '../../../styles.scss' as *; // Import the styles from the specified path and make variables, mixins, etc., available globally
 
-#productDetail{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+// Styles for the product detail container
+#productDetail {
+  display: flex; // Use Flexbox for layout
+  flex-direction: column; // Arrange children in a vertical column
+  justify-content: center; // Vertically center the content
+  align-items: center; // Horizontally center the content
 }
+
+// Styling for the product detail card
 .product-detail-card {
-  width: 300px;
-  height: auto;
-  background-color: $white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; // Fixed width for the card
+  height: auto; // Height adjusts based on content
+  background-color: $white; // Background color is set using the $white variable from the imported styles
+  padding: 20px; // 20px padding inside the card
+  border-radius: 10px; // Rounded corners with 10px radius
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow around the card for a soft, elevated effect
 }
 
+// Styling for the product name
 .product-name {
-  font-size: 24px;
-  color: $primary-color;
+  font-size: 24px; // Set font size to 24px for better visibility
+  color: $primary-color; // Use the primary color variable for the text color
 }
 
+// Styling for the product price
 .product-price {
-  color: $secondary-color;
-  font-weight: bold;
+  color: $secondary-color; // Use the secondary color variable for the price text
+  font-weight: bold; // Make the price text bold to highlight it
 }
 
+// Styling for the "Buy" button
 .buy-button {
-  background-color: $primary-color;
-  color: $white;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
+  background-color: $primary-color; // Set the button background to the primary color
+  color: $white; // Make the text color white
+  border-radius: 5px; // Rounded corners with 5px radius
+  padding: 10px; // 10px padding inside the button
+  font-size: 16px; // Set the font size to 16px
+  cursor: pointer; // Change the cursor to a pointer on hover
 
-  &:hover {
-    background-color: $secondary-color;
+  &:hover { // Define the hover state for the "Buy" button
+    background-color: $secondary-color; // Change the background color to the secondary color on hover
   }
 }
+
+// Styling for the "Back" button (similar to the "Buy" button but with different hover behavior)
 .back {
-  background-color: $primary-color;
-  color: $white;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
+  background-color: $primary-color; // Set the button background to the primary color
+  color: $white; // Make the text color white
+  border-radius: 5px; // Rounded corners with 5px radius
+  padding: 10px; // 10px padding inside the button
+  font-size: 16px; // Set the font size to 16px
+  cursor: pointer; // Change the cursor to a pointer on hover
 
-  &:hover {
-    background-color: $accent-color;
+  &:hover { // Define the hover state for the "Back" button
+    background-color: $accent-color; // Change the background color to the accent color on hover
   }
 }
+
+// Styling for the product image
 .product-image {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%; // Ensure the image doesn't exceed the width of its container
+  height: auto; // Maintain the image's aspect ratio (height adjusts automatically)
 }
 
+// Container for multiple buttons, ensuring they are displayed in a row with spacing between them
 .button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: flex; // Use Flexbox for layout
+  flex-direction: row; // Arrange buttons in a horizontal row
+  justify-content: space-around; // Distribute buttons evenly with space around each one
 }

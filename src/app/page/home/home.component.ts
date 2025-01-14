@@ -1,34 +1,34 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: "app-Home",
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss"
+  selector: "app-Home", // The selector to identify the component in the template
+  templateUrl: "./home.component.html", // Path to the HTML template
+  styleUrl: "./home.component.scss" // Path to the SCSS stylesheet
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('bildContainer', { static: true }) bildContainer!: ElementRef;
-  bilder!: NodeListOf<HTMLElement>;
-  currentIndex: number = 0;
+  @ViewChild('bildContainer', { static: true }) bildContainer!: ElementRef; // Access the DOM element with the reference 'bildContainer'
+  bilder!: NodeListOf<HTMLElement>; // Declare a variable to store the list of images (DOM elements)
+  currentIndex: number = 0; // Initialize the index to keep track of the currently displayed image
 
   ngOnInit(): void {
-    // Hämta alla bilder från DOM:en
+    // Get all the images from the DOM inside the 'bildContainer' element
     this.bilder = this.bildContainer.nativeElement.querySelectorAll('.bild');
 
-    // Visa den första bilden när sidan laddas
+    // Show the first image when the page loads
     this.showNextBild();
 
-    // Byt bild var 3:e sekund
+    // Change the image every 3 seconds
     setInterval(() => this.showNextBild(), 3000);
   }
 
   showNextBild(): void {
-    // Ta bort "active"-klassen från den nuvarande bilden
+    // Remove the "active" class from the currently displayed image
     this.bilder[this.currentIndex].classList.remove('active');
 
-    // Uppdatera index för nästa bild
+    // Update the index to point to the next image
     this.currentIndex = (this.currentIndex + 1) % this.bilder.length;
 
-    // Lägg till "active"-klassen för nästa bild
+    // Add the "active" class to the next image
     this.bilder[this.currentIndex].classList.add('active');
   }
 }
