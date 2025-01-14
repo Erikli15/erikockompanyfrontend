@@ -5,7 +5,7 @@ import { WebbshopComponent } from './page/webbshop/webbshop.component';
 import { ContactComponent } from './page/contact/contact.component';
 import { KlarnaCheckoutComponent } from './page/checkout/checkout.component';
 import { ProductComponent } from './page/product/product.component';
-import { CartComponent } from './components/carts/carts.component';
+import { CartsComponent } from './components/carts/carts.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent }, // Home-sidan
@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent }, // Contact-sidan
   { path: 'about', component: AboutComponent }, // About-sidan
   { path: 'product/:id', component: ProductComponent }, // Rutt till produktdetaljer
-  { path: 'carts', component: CartComponent }, // cart-comounent
+  { path: 'carts', component: CartsComponent }, // cart-comounent
   { path: 'checkout', component: KlarnaCheckoutComponent }, // checkout-sidan
 
 

@@ -1,59 +1,27 @@
 # Erikocompanyfrontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 
-## Development server
+## Funktioner
+1. Visa produkter i en lista
+2. Lägg till produkter i kundvagnen
+3. Uppdatera kundvagnen
+4. Ta bort produkter från kundvagnen
+5. Responsive design för mobil och desktop
 
-To start a local development server, run:
+### Teknologier
+1. Angular - Frameworket som används för frontendutvecklingen.
+2. SCSS - För styling av applikationen.
+3. Local Storage - För att spara kundvagnsinformation lokalt i webbläsaren (kan modifieras för att använda en server i framtiden).
 
-```bash
-ng serve
-```
+#### Installation
+1. Klon repositoryn med `git clone https://github.com/erikocompany/erikocompanyfrontend.git`.
+2. Navigera till projektets rootmapp med `cd erikocompanyfrontend`.
+3. Installera beroenden med `npm install`.
+4. Starta applikationen med `ng serve eller npm start`.
+5. Öppna webbläsaren på `http://localhost:4200` för att se applikationen i action.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+##### Struktur
+1. src/app: Huvudkatalogen för Angular-applikationen
+2. components/: Innehåller alla komponenter som används i applikationen, t.ex. produktlista, kundvagn och så vidare.
+3. models/: Definierar de datatyper som används, som t.ex. en produktmodell.
+4. app.module.ts: Huvudmodulen för Angular-applikationen.
