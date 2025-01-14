@@ -6,7 +6,7 @@ footer {
   color: $white;  // Set text color to white
   padding: 20px 0;  // Add vertical padding to the footer
   position: relative;  // Make footer position relative for potential absolute positioning of child elements
-
+  bottom: 0;
   /* Container inside the footer */
   .container {
     display: flex;  // Use Flexbox for layout

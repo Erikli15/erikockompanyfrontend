@@ -17,21 +17,28 @@
   max-width: 800px; 
   // Limits the maximum width of the container to 800px, ensuring the content doesn't stretch too wide.
   
+  
   margin: 3rem auto; 
   // Centers the container horizontally and adds a top and bottom margin of 3rem.
   
   text-align: center; 
   // Centers the text inside the container.
   
-  height: 100vh; 
+  height: 100%; 
   // Sets the height of the container to 100% of the viewport height, ensuring it's full screen.
-  
+}
   section {
     margin: 0 auto;
     // Centers the section inside the container.
     
     max-width: 700px; 
     // Limits the maximum width of the section to 700px, preventing it from being too wide.
+    width: 100%;         // Makes the container take up the full width of its parent
+    height: 50vh; /* Set the height of the element to 50% of the viewport height */
+    display: flex;       // Uses Flexbox to align child elements inside the form
+    flex-direction: column; // Stacks form elements vertically
+    justify-content: center; // Centers form elements vertically
+    align-items: center;     // Centers form elements horizontally
   }
 
   h1 {
@@ -61,5 +68,5 @@
     max-width: 650px; 
     // Restricts the paragraph's maximum width to 650px, ensuring it doesn't stretch too far across the screen.
   }
-}
+
 

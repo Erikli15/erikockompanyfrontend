@@ -3,8 +3,9 @@
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   box-sizing: border-box; /* Use border-box for box sizing, includes padding and border within the element's total width and height */
-  width: auto; /* Set default width to auto */
-  height: auto; /* Set default height to auto */
+ /* Global rule to set width and height to auto for any element */
+width: auto;
+height: auto;
 }
 
 /* Color Variables */
@@ -19,11 +20,33 @@ $dark-gray: #454545;
 $black: #000000;
 $white: #FFFFFF;
 
+
+/* Styling for the app-root element */
+app-root {
+  display: block; /* Makes the app-root element a block-level element */
+  box-sizing: border-box; /* Ensures padding and borders are included in the width and height calculations */
+  background-color: $white; /* Sets the background color of the app-root element to white */
+  width: 100%; /* Sets the width to 100% of its parent container */
+  height: 100%; /* Sets the height to 100% of its parent container */
+}
+/* Styling for the app-footer element */
+app-footer {
+  display: block; /* Makes the app-footer element a block-level element */
+  position: relative; /* Allows for relative positioning (useful for child elements or future adjustments) */
+  width: 100%; /* Sets the footer width to 100% of its parent container */
+  height: auto; /* Height adjusts automatically based on the content inside the footer */
+  bottom: 0; /* This rule does not have any effect because the element is positioned relatively, not absolutely */
+}
+
 /* Standard styles for body, text, and headings */
 body {
   font-family: 'Arial', sans-serif; /* Apply Arial font */
   color: $text-color; /* Apply dark gray text color */
   background-color: $background-color; /* Set background to light gray */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
