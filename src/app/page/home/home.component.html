@@ -23,8 +23,18 @@
     <!-- Section displaying the most viewed products (currently empty) -->
     <section>
         <h2>Mest visade produkter</h2>
-        <div class="popular-card">
-            <!-- Placeholder for popular products (No content inside yet) -->
+        <div class="popular-card" *ngIf="mostViewedProducts.length > 0">
+            <div *ngFor="let product of mostViewedProducts" class="product-card">
+                <img [src]="product.imgUrl" alt="{{ product.productName }}" />
+                <h3>{{ product.productName }}</h3>
+                <p>{{ product.description }}</p>
+                <p>Pris: {{ product.price | currency }}</p>
+            </div>
+        </div>
+    
+        <!-- Visa ett meddelande om inga produkter finns -->
+        <div *ngIf="mostViewedProducts.length === 0">
+            Inga populära produkter finns just nu.
         </div>
     </section>
 
