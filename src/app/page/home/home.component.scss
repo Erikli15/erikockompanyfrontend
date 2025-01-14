@@ -15,16 +15,27 @@
 
 // Styling for the main heading (h1)
 h1 {
+  display: flex; // Using flexbox for layout
+  justify-content: center; // Vertically centering items within the container
+  align-items: center; // Horizontally centering items within the container
   font-family: 'Helvetica', sans-serif; // Using Helvetica font for the heading
   color: $primary-color; // Text color set from variable $primary-color
 }
 
 // Styling for the secondary heading (h2)
 h2 {
+  display: flex; // Using flexbox for layout
+  flex-direction: column; // Aligning flex items in a column direction
+  justify-content: center; // Vertically centering items within the container
   font-family: 'Helvetica', sans-serif; // Using Helvetica font for the secondary heading
   color: $Deep-Sapphire; // Text color set from variable $Deep-Sapphire
 }
 
+a{
+  display: flex; // Using flexbox for layout
+  justify-content: center; // Vertically centering items within the container
+  align-items: center; // Horizontally centering items within the container
+}
 // Styling for buttons
 button {
   background-color: $primary-color; // Background color set from variable $primary-color
@@ -45,6 +56,19 @@ button {
   }
 }
 
+p{
+  display: flex; // Using flexbox for layout
+  justify-content: center; // Vertically centering items within the container
+  align-items: center; // Horizontally centering items within the container
+}
+
+section{
+  display: flex; // Using flexbox for layout
+  flex-direction: column; // Aligning flex items in a column direction
+  justify-content: center; // Vertically centering items within the container
+  align-items: center; // Horizontally centering items within the container
+  }
+
 // Styling for the image slideshow (bildspel)
 .bildspel {
   display: flex; // Using flexbox for layout
@@ -53,6 +77,7 @@ button {
   gap: 10px; // Adding a 10px gap between images
   overflow: hidden; // Hides images that aren't active (to avoid them overflowing)
   justify-content: center; // Horizontally centers the images within the container
+  align-items: center;
 
   // Styling for individual images in the slideshow
   .bild {
