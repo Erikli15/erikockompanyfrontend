@@ -1,13 +1,13 @@
 <form (ngSubmit)="onSubmit(checkoutForm)" #checkoutForm="ngForm">
   <!-- Billing Address Section -->
   <div class="form-group">
-    <label for="billingCountry">Country *:</label>
+    <label for="billingCountry">Land *:</label>
     <input type="text" id="billingCountry" name="billingCountry" ngModel [(ngModel)]="checkoutFormData.billingCountry" required class="form-input">
   </div>
 
   <!-- Use as Shipping Address Checkbox -->
   <div class="form-group">
-    <label for="useAsShippingAddress">Use as shipping address:</label>
+    <label for="useAsShippingAddress">Gatuadress:</label>
     <input type="checkbox" id="useAsShippingAddress" name="useAsShippingAddress" ngModel [(ngModel)]="checkoutFormData.useAsShippingAddress" (change)="onUseAsShippingAddressChange()" class="form-checkbox">
   </div>
 
@@ -15,41 +15,41 @@
   <div class="form-group">
     <label for="customerType">Customer Type:</label>
     <select id="customerType" name="customerType" ngModel required class="form-select">
-      <option value="person">Individual</option>
-      <option value="organisation">Organization</option>
+      <option value="person">Person</option>
+      <option value="organisation">Företag</option>
     </select>
   </div>
 
   <!-- Personal Information Section (Displayed only for 'person' customer type) -->
   <div *ngIf="checkoutForm.value.customerType === 'person'" class="form-group">
-    <label for="name">Full Name *:</label>
+    <label for="name">För och Efternamn *:</label>
     <input type="text" id="name" name="name" ngModel [(ngModel)]="checkoutFormData.name" required class="form-input">
   </div>
 
   <!-- Organization Information Section (Displayed only for 'organisation' customer type) -->
   <div *ngIf="checkoutForm.value.customerType === 'organisation'" class="form-group">
-    <label for="organisationName">Name (required):</label>
+    <label for="organisationName">Företagnamn:</label>
     <input type="text" id="organisationName" name="organisationName" ngModel [(ngModel)]="checkoutFormData.organizationName" required class="form-input">
 
-    <label for="organisationNumber">Organization Number:</label>
+    <label for="organisationNumber">Orginationsnummer:</label>
     <input type="text" id="organisationNumber" name="organisationNumber" ngModel [(ngModel)]="checkoutFormData.organizationNumber" required class="form-input">
   </div>
 
   <!-- Street Address Section -->
   <div class="form-group">
-    <label for="streetAddress">Street *:</label>
+    <label for="streetAddress">Gatuadress *:</label>
     <input type="text" id="streetAddress" name="streetAddress" ngModel [(ngModel)]="checkoutFormData.streetAddress" required class="form-input">
   </div>
 
   <!-- Postal Code Section -->
   <div class="form-group">
-    <label for="postCode">Postal Code (XXXXX) *:</label>
+    <label for="postCode">Post nummer (XXXXX) *:</label>
     <input type="text" id="postCode" name="postCode" ngModel [(ngModel)]="checkoutFormData.postCode" required class="form-input">
   </div>
 
   <!-- City Section -->
   <div class="form-group">
-    <label for="city">City *:</label>
+    <label for="city">Stad *:</label>
     <input type="text" id="city" name="city" ngModel [(ngModel)]="checkoutFormData.city" required class="form-input">
   </div>
 
@@ -59,43 +59,43 @@
 
     <!-- Shipping Name -->
     <div class="form-group">
-      <label for="shippingName">Name *:</label>
+      <label for="shippingName">För och Efternamn *::</label>
       <input type="text" id="shippingName" name="shippingName" ngModel [(ngModel)]="checkoutFormData.name" required class="form-input">
     </div>
 
     <!-- Shipping Country -->
     <div class="form-group">
-      <label for="shippingCountry">Country *:</label>
+      <label for="shippingCountry">Land *:</label>
       <input type="text" id="shippingCountry" name="shippingCountry" ngModel [(ngModel)]="checkoutFormData.shippingCountry" required class="form-input">
     </div>
 
     <!-- Shipping Street Address -->
     <div class="form-group">
-      <label for="shippingStreetAddress">Street *:</label>
+      <label for="shippingStreetAddress">Gatuadress *:</label>
       <input type="text" id="shippingStreetAddress" name="shippingStreetAddress" ngModel [(ngModel)]="checkoutFormData.shippingStreetAddress" required class="form-input">
     </div>
 
     <!-- Shipping Postal Code -->
     <div class="form-group">
-      <label for="shippingPostCode">Postal Code *:</label>
+      <label for="shippingPostCode">Post nummer (XXXXX) *:</label>
       <input type="text" id="shippingPostCode" name="shippingPostCode" ngModel [(ngModel)]="checkoutFormData.shippingPostCode" required class="form-input">
     </div>
 
     <!-- Shipping City -->
     <div class="form-group">
-      <label for="shippingCity">City *:</label>
+      <label for="shippingCity">Stad *:</label>
       <input type="text" id="shippingCity" name="shippingCity" ngModel [(ngModel)]="checkoutFormData.shippingCity" required class="form-input">
     </div>
   </div>
 
   <!-- Order Details Section (Pre-filled or dynamically generated) -->
   <div class="order-details" *ngFor="let product of this.data">
-    <h3>Order Details</h3>
-    <p>Product: {{ product.productName }}</p>
-    <p>Quantity: {{ product.quantity }}</p>
-    <p>Unit Price: {{ product.price }} SEK</p>
-    <p>VAT: 25%</p>
-    <p>Total Price: {{ (product.price * product.quantity) }} SEK</p>
+    <h3>Order ditaljer</h3>
+    <p>Produkt: {{ product.productName }}</p>
+    <p>Antal: {{ product.quantity }}</p>
+    <p>Enhetspris: {{ product.price }} SEK</p>
+    <p>Moms: 25%</p>
+    <p>Totala Priset: {{ (product.price * product.quantity) }} SEK</p>
   </div>
 
   <!-- Submit Button for Payment -->

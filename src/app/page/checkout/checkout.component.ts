@@ -84,39 +84,60 @@ export class KlarnaCheckoutComponent implements OnInit, AfterViewInit {
 
   // Method to handle the form submission and create an order
   onSubmit(formData: NgForm) {
-    const products = this.data;  // Get the products in the cart
+    const products = this.data;  // Get the products from the shopping cart
     const productCounts = this.cartService.getProductCounts();  // Get the count of each product in the cart
-
-    // Prepare order data using form input and cart details
-    const orderData = {
-      billingCountry: formData.value.billingCountry,
-      customerType: formData.value.customerType,
-      shippingCountry: formData.value.shippingCountry,
-      name: formData.value.name,
-      organizationName: formData.value.organizationName,
-      organizationNumber: formData.value.organizationNumber,
-      streetAddress: formData.value.streetAddress,
-      postCode: formData.value.postCode,
-      city: formData.value.city,
-      useAsShippingAddress: formData.value.useAsShippingAddress,
-      orderDetails: products.map((product: { quantity: any; productName: any; price: any; }) => ({
-        product: product.productName,
-        quantity: productCounts[product.productName],  // Number of items for each product
-        unitPrice: product.price * product.quantity,  // Total price for each product
-        taxRate: 25,  // Assume a fixed tax rate of 25%
-      }))
+  
+    // Create the billing address object using form data
+    const billingAddress = {
+      given_name: formData.value.name,  // Customer's full name
+      street_address: formData.value.streetAddress,  // Customer's street address
+      postal_code: formData.value.postCode,  // Customer's postal code
+      city: formData.value.city,  // Customer's city
+      country: formData.value.billingCountry,  // Customer's billing country
     };
-
+  
+    // Create the shipping address object, depending on whether the user wants to use the same address
+    const shippingAddress = formData.value.useAsShippingAddress ? billingAddress : {
+      given_name: formData.value.name,  // Customer's full name (for shipping)
+      street_address: formData.value.shippingStreetAddress,  // Shipping street address
+      postal_code: formData.value.shippingPostCode,  // Shipping postal code
+      city: formData.value.shippingCity,  // Shipping city
+      country: formData.value.shippingCountry,  // Shipping country
+    };
+  
+    // Prepare the order data object using the form input and cart details
+    const orderData = {
+      billingCountry: formData.value.billingCountry,  // Billing country
+      customerType: formData.value.customerType,  // Customer type (e.g., individual, organization)
+      shippingCountry: formData.value.shippingCountry,  // Shipping country
+      name: formData.value.name,  // Customer's full name
+      organizationName: formData.value.organizationName,  // Organization name (if applicable)
+      organizationNumber: formData.value.organizationNumber,  // Organization number (if applicable)
+      streetAddress: formData.value.streetAddress,  // Billing street address
+      postCode: formData.value.postCode,  // Billing postal code
+      city: formData.value.city,  // Billing city
+      useAsShippingAddress: formData.value.useAsShippingAddress,  // Whether the shipping address is the same as the billing address
+      orderDetails: products.map((product: { quantity: any; productName: any; price: any; }) => ({
+        product: product.productName,  // Product name
+        quantity: productCounts[product.productName],  // Quantity of the product
+        unitPrice: product.price * product.quantity,  // Total price for each product (without tax)
+        taxRate: 25,  // Fixed tax rate of 25%
+      })),
+      billingAddress: billingAddress,  // Include the billing address in the order data
+      shippingAddress: shippingAddress,  // Include the shipping address in the order data
+    };
+  
     // Call the method to create an order and handle the response
     this.createOrder(orderData).then((response: any) => {
       console.log('Order created successfully:', response);  // Log success message
       this.nyaOrdern = response;  // Store the response (new order)
       this.renderSnippet();  // Render the Klarna checkout snippet
-      this.cartService.clearCart();  // Clear the cart after order creation
+      this.cartService.clearCart();  // Clear the shopping cart after order creation
     }).catch((error: any) => {
       console.error('Error creating order:', error);  // Log error if order creation fails
     });
   }
+  
 
   // Method to create an order by sending an HTTP POST request to the backend
   createOrder(orderData: any): Promise<any> {
