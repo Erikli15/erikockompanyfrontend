@@ -25,14 +25,22 @@
       </div>
       <div class="modal-body">
         <!-- List of products in the cart -->
-        <ul>
-          <li *ngFor="let product of cartProducts">
-            <!-- Display product name, quantity, and price for each product in the cart -->
-            {{ product.productName }} ({{product.quantity}}) - {{ product.price }} kr
-          </li>
-        </ul>
-        <!-- Display the total price of the cart -->
-        <div>Total: {{ getFormattedTotal() }}</div>
+<ul>
+  <li *ngFor="let product of cartProducts">
+    <!-- Display product name, quantity, and price for each product in the cart -->
+    {{ product.productName }} ({{ product.quantity }}) - {{ product.price }} kr
+    
+    <!-- Buttons for modifying the product quantity -->
+    <button (click)="increaseQuantity(product.productName)">+</button> <!-- Increase quantity -->
+    <button (click)="decreaseQuantity(product.productName)">-</button> <!-- Decrease quantity -->
+    
+    <!-- Button for removing the product from the cart -->
+    <button (click)="removeProduct(product.productName)">Ta bort</button> <!-- Remove product -->
+  </li>
+</ul>
+
+<!-- Display the total price of the cart -->
+<div>Total: {{ getFormattedTotal() }}</div>
       </div>
       <div class="modal-footer">
         <!-- Link to Checkout (Köp) -->

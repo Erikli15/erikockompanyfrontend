@@ -34,6 +34,7 @@ export class CartsComponent implements OnInit {
     });
   }
 
+
   // Method to add a product to the cart
   addToCart(product: Product): void {
     this.cartService.addProduct(product);
@@ -42,6 +43,19 @@ export class CartsComponent implements OnInit {
   // Method to retrieve the total number of items in the cart
   getCartItemCount(): number {
     return this.cartService.getCartItemCount();
+  }
+
+
+  increaseQuantity(productName: string): void {
+    this.cartService.increaseProductQuantity(productName);
+  }
+
+  decreaseQuantity(productName: string): void {
+    this.cartService.decreaseProductQuantity(productName);
+  }
+
+  removeProduct(productName: string): void {
+    this.cartService.removeProduct(productName);
   }
 
   // Method to open the modal window displaying the cart

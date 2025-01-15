@@ -2,111 +2,138 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-// Definition of the Product type if it's not already defined elsewhere
+// Product interface definition
 export interface Product {
   productName: string;  // Name of the product
   price: number;        // Price of the product
   quantity: number;     // Quantity of the product in the cart
-
-  // Other properties you might have for products
 }
 
 @Injectable({
-  providedIn: 'root',  // Marks this service as injectable and provides it at the root level of the app
+  providedIn: 'root',  // Service is provided at the root level
 })
 export class CartService {
 
-  // Method to add a product to the cart
-  addProduct(product: Product) {
-    this.addProductToCart(product);  // Calls private method to add product to the cart
-  }
-
-  // BehaviorSubject that holds the current list of products in the cart
-  private cartProductsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  // BehaviorSubject that holds the list of products in the cart
+  public cartProductsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
   constructor() {
-    // Loads the cart from localStorage when the service is instantiated
+    // Load the cart data from localStorage when the service is instantiated
     this.loadCartFromStorage();
   }
 
-  // Retrieves the products in the cart as an observable
+  // Retrieve the list of products in the cart as an observable
   getCartProducts(): Observable<Product[]> {
-    return this.cartProductsSubject.asObservable();  // Exposes the cart products as an observable
+    return this.cartProductsSubject.asObservable();
   }
 
-  // Retrieves the total number of products in the cart
+  // Get the total number of items in the cart (based on unique products)
   getCartItemCount(): number {
-    return this.cartProductsSubject.value.length;  // Returns the length of the current cart array
+    return this.cartProductsSubject.value.length;
   }
 
-  // Retrieves the count of each product by name in the cart
+  // Get a count of each product by name in the cart
   getProductCounts(): { [productName: string]: number } {
     const productCounts: { [productName: string]: number } = {};  // Object to store product counts
 
-    // Iterates over all products in the cart and counts occurrences of each product by name
+    // Iterate over the cart items and count occurrences of each product by name
     this.cartProductsSubject.value.forEach((product) => {
       if (productCounts[product.productName]) {
-        productCounts[product.productName]++;  // Increment count if the product already exists
+        productCounts[product.productName]++;  // Increment count if product already exists
       } else {
         productCounts[product.productName] = 1;  // Initialize count if it's the first occurrence
       }
     });
 
-    return productCounts;  // Return the count object
+    return productCounts;  // Return the object containing the count of each product
   }
 
-  // Private method to add a product to the cart
-  private addProductToCart(product: Product): void {
-    console.log('Attempting to add product to the cart:', product);
+  // Add a product to the cart
+  addProduct(product: Product): void {
+    this.addProductToCart(product);  // Calls private method to add or update the product in the cart
+  }
 
-    // Retrieve the current cart contents from BehaviorSubject
+  // Increase the quantity of a specific product in the cart
+  increaseProductQuantity(productName: string): void {
     const currentCart = this.cartProductsSubject.value;
-    console.log('Current cart:', currentCart);
+    const productIndex = currentCart.findIndex((p) => p.productName === productName);
 
-    // Find if the product already exists in the cart
+    if (productIndex !== -1) {
+      // If the product is found, increment the quantity by 1
+      const updatedProduct = { ...currentCart[productIndex], quantity: currentCart[productIndex].quantity + 1 };
+      currentCart[productIndex] = updatedProduct;  // Update the product in the cart array
+      this.cartProductsSubject.next([...currentCart]);  // Update the BehaviorSubject state
+      this.saveCartToStorage();  // Save the updated cart to localStorage
+    }
+  }
+
+  // Decrease the quantity of a specific product in the cart
+  decreaseProductQuantity(productName: string): void {
+    const currentCart = this.cartProductsSubject.value;
+    const productIndex = currentCart.findIndex((p) => p.productName === productName);
+
+    if (productIndex !== -1 && currentCart[productIndex].quantity > 1) {
+      // If the product is found and its quantity is greater than 1, decrement the quantity by 1
+      const updatedProduct = { ...currentCart[productIndex], quantity: currentCart[productIndex].quantity - 1 };
+      currentCart[productIndex] = updatedProduct;
+      this.cartProductsSubject.next([...currentCart]);
+      this.saveCartToStorage();
+    } else {
+      // If quantity is 1, remove the product from the cart
+      this.removeProduct(productName);
+    }
+  }
+
+  // Remove a product from the cart by its name
+  removeProduct(productName: string): void {
+    const currentCart = this.cartProductsSubject.value;
+    // Filter out the product with the given name from the cart
+    const updatedCart = currentCart.filter((product) => product.productName !== productName);
+    this.cartProductsSubject.next(updatedCart);  // Update the cart with the new list
+    this.saveCartToStorage();  // Save the updated cart to localStorage
+  }
+
+  // Private method to add a new product or update the quantity of an existing product in the cart
+  public addProductToCart(product: Product): void {
+    const currentCart = this.cartProductsSubject.value;
     const existingProductIndex = currentCart.findIndex((p) => p.productName === product.productName);
-    console.log('Existing product index:', existingProductIndex);
 
     if (existingProductIndex !== -1) {
-      // If the product exists in the cart, update the quantity
+      // If the product already exists in the cart, update its quantity
       const existingProduct = currentCart[existingProductIndex];
-      const newQuantity = (existingProduct.quantity || 0) + (product.quantity || 1); // Add the new quantity
-
-      console.log(`Product found, updating quantity from ${existingProduct.quantity} to ${newQuantity}`);
-
-      // Update the product's quantity in the cart
-      currentCart[existingProductIndex] = { ...existingProduct, quantity: newQuantity };
+      const newQuantity = (existingProduct.quantity || 0) + (product.quantity || 1);  // Increase quantity
+      currentCart[existingProductIndex] = { ...existingProduct, quantity: newQuantity };  // Update product in the cart
     } else {
-      // If the product doesn't exist, add it with the specified quantity (or 1 if no quantity is provided)
+      // If the product doesn't exist in the cart, add it as a new product with its specified quantity (or 1 by default)
       product.quantity = product.quantity || 1;
-      console.log('Product not found, adding as new:', product);
       currentCart.push(product);
     }
 
-    // Update the cart state and save it to localStorage
-    this.cartProductsSubject.next([...currentCart]);
-    this.saveCartToStorage();
-    console.log('Updated cart:', currentCart);
+    this.cartProductsSubject.next([...currentCart]);  // Update the cart state
+    this.saveCartToStorage();  // Save the updated cart to localStorage
   }
 
-  // Method to clear the cart (empty the cart)
+  // Clear the cart by resetting the cart to an empty array
   clearCart(): void {
-    this.cartProductsSubject.next([]);  // Reset the cart to an empty array
+    this.cartProductsSubject.next([]);  // Reset cart contents to an empty array
     this.saveCartToStorage();  // Save the empty cart to localStorage
   }
 
-  // Method to save the cart to localStorage or other storage
-  saveCartToStorage(): void {
+  // Save the current cart contents to localStorage
+  public saveCartToStorage(): void {
     const products = this.cartProductsSubject.value;
-    localStorage.setItem('cart', JSON.stringify(products));  // Save the cart data as a JSON string
+    // Convert the cart array to a JSON string and save it in localStorage
+    localStorage.setItem('cart', JSON.stringify(products));
   }
 
-  // Method to load the cart from localStorage or other storage
-  loadCartFromStorage(): void {
-    const savedCart = localStorage.getItem('cart');  // Retrieve the cart data from localStorage
+  // Load the cart contents from localStorage when the service is initialized
+  public loadCartFromStorage(): void {
+    const savedCart = localStorage.getItem('cart');
     if (savedCart) {
-      const parsedCart: Product[] = JSON.parse(savedCart);  // Parse the saved cart data into an array of products
-      this.cartProductsSubject.next(parsedCart);  // Update the cart's state with the loaded data
+      // If cart data is found in localStorage, parse it and update the cart state
+      const parsedCart: Product[] = JSON.parse(savedCart);
+      this.cartProductsSubject.next(parsedCart);  // Update the cart state with the parsed data
     }
   }
 }
+
