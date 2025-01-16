@@ -7,7 +7,7 @@
 
   <!-- Use as Shipping Address Checkbox -->
   <div class="form-group">
-    <label for="useAsShippingAddress">Gatuadress:</label>
+    <label for="useAsShippingAddress">Annan adresse som leveransadress:</label>
     <input type="checkbox" id="useAsShippingAddress" name="useAsShippingAddress" ngModel [(ngModel)]="checkoutFormData.useAsShippingAddress" (change)="onUseAsShippingAddressChange()" class="form-checkbox">
   </div>
 
@@ -54,8 +54,8 @@
   </div>
 
   <!-- Shipping Address (Only shown when checkbox is not checked) -->
-  <div *ngIf="!checkoutFormData.useAsShippingAddress">
-    <h3>Shipping Address</h3>
+  <div *ngIf="checkoutFormData.useAsShippingAddress">
+    <h3>Leveransadress</h3>
 
     <!-- Shipping Name -->
     <div class="form-group">
