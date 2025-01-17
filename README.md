@@ -14,7 +14,7 @@
 3. Local Storage - För att spara kundvagnsinformation lokalt i webbläsaren (kan modifieras för att använda en server i framtiden).
 
 #### Installation
-1. Klon repositoryn med `git clone https://github.com/erikocompany/erikocompanyfrontend.git`.
+1. Klon repositoryn med `git clone hhttps://github.com/Erikli15/erikocompanybackend.git`.
 2. Navigera till projektets rootmapp med `cd erikocompanyfrontend`.
 3. Installera beroenden med `npm install`.
 4. Starta applikationen med `ng serve eller npm start`.
